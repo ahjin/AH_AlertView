@@ -17,7 +17,7 @@ Usage:
 
 \#import "AHAlertView.h"
 
-AHAlertView *alertView = [[AHAlertView alloc] initWithTitle:@"Alert Tip"
+AHAlertView *alertView = [[AHAlertView alloc] initWithTitle:@"Alert Tip" 
                           andMessage: @"This is Test." 
                           andCancelButtonTitle: @"OK"
                          ];
