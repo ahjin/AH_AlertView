@@ -22,9 +22,12 @@ AHAlertView *alertView = [[AHAlertView alloc] initWithTitle:@"Alert Tip"
                           andCancelButtonTitle: @"OK"
                          ];
 
-[alertView addButtonTitle:@[@"Item1", @"Item2", @"Item3", @"Item4"]];\r
-[alertView setCancelButtonColor:[UIColor redColor]];\r
-[alertView setOnButtonTouchUpInside:^(AHAlertView *alertView, int buttonIndex) {\r
+[alertView addButtonTitle:@[@"Item1", @"Item2", @"Item3", @"Item4"]];
+
+[alertView setCancelButtonColor:[UIColor redColor]];
+
+[alertView setOnButtonTouchUpInside:^(AHAlertView *alertView, int buttonIndex) {
+
   NSLog(@"tap = %i", buttonIndex);
   if (buttonIndex > 0){
     //insert your code......
