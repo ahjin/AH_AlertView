@@ -15,7 +15,7 @@ This is customer alertView for iOS
 
 Usage:
 
-#import "AHAlertView.h"
+\#import "AHAlertView.h"
 
 AHAlertView *alertView = [[AHAlertView alloc] initWithTitle:@"Alert Tip"
                           andMessage: @"This is Test." 
