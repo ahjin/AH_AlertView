@@ -69,11 +69,6 @@ const static CGFloat kCustomMotionEffectExtent                 = 10.0;
 
 @property (nonatomic, assign) BOOL useMotionEffects;
 
-/**
- ** Button Mode of the dialog
- */
-@property (nonatomic, assign) AlertViewMode alertMode;
-
 
 /**
  ** onButtonTouchUpInside block
@@ -205,17 +200,15 @@ CGFloat buttonSpacerHeight = 0;
         if (_alertMode == AlertViewMode_CheckBox) {
             
             UILabel *label = (UILabel*)[self viewWithTag:([sender tag]+50)];
-            //            UIImageView *checkImg = (UIImageView*)[self viewWithTag:([sender tag]+50)];
             
-            if ([[checkBoxStatusTemp objectAtIndex:[sender tag]]boolValue]) {
+            if ([[checkBoxStatusTemp objectAtIndex:[sender tag]-1]boolValue]) {
                 label.text = @"\u2B1C";
-                //                checkImg.image = [UIImage imageNamed:CHECK_OFF];
-                [checkBoxStatusTemp replaceObjectAtIndex:[sender tag] withObject:@0];
+
+                [checkBoxStatusTemp replaceObjectAtIndex:[sender tag]-1 withObject:@0];
             }
             else {
                 label.text = @"\u2611";
-                //                checkImg.image = [UIImage imageNamed:CHECK_ON];
-                [checkBoxStatusTemp replaceObjectAtIndex:[sender tag] withObject:@1];
+                [checkBoxStatusTemp replaceObjectAtIndex:[sender tag]-1 withObject:@1];
             }
         }
         else {
@@ -223,19 +216,15 @@ CGFloat buttonSpacerHeight = 0;
                 if ([[checkBoxStatusTemp objectAtIndex:i]boolValue]) {
                     [checkBoxStatusTemp replaceObjectAtIndex:i withObject:@0];
                     
-                    UILabel *label = (UILabel*)[self viewWithTag:(i+50)];
+                    UILabel *label = (UILabel*)[self viewWithTag:(i+1+50)];
                     label.text = @"\u26AA";
-                    //                    UIImageView *checkImg = (UIImageView*)[self viewWithTag:(i+50)];
-                    //                    checkImg.image = [UIImage imageNamed:RADIO_OFF];
                 }
             }
             
             UILabel *label = (UILabel*)[self viewWithTag:([sender tag]+50)];
-            //            UIImageView *checkImg = (UIImageView*)[self viewWithTag:([sender tag]+50)];
-            if (![[checkBoxStatusTemp objectAtIndex:[sender tag]]boolValue]) {
+            if (![[checkBoxStatusTemp objectAtIndex:[sender tag]-1]boolValue]) {
                 label.text = @"\u26AB";
-                //                checkImg.image = [UIImage imageNamed:RADIO_ON];
-                [checkBoxStatusTemp replaceObjectAtIndex:[sender tag] withObject:@1];
+                [checkBoxStatusTemp replaceObjectAtIndex:[sender tag]-1 withObject:@1];
             }
             
         }
@@ -460,14 +449,14 @@ CGFloat buttonSpacerHeight = 0;
                 checkLabel = [[UILabel alloc]initWithFrame:CGRectMake(buttonWidth-30, _containerView.frame.size.height+buttonSpacerHeight+buttonHeight/2-12 + (buttonHeight+buttonSpacerHeight) * i, 25, 25)];
                 checkLabel.text = @"\u26AA";
                 checkLabel.font = [UIFont systemFontOfSize:16];
-                [checkLabel setTag: 50+i];
+                [checkLabel setTag: 50+i+1];
                 
             }
             else if (_alertMode == AlertViewMode_CheckBox){
                 checkLabel = [[UILabel alloc]initWithFrame:CGRectMake(buttonWidth-30, _containerView.frame.size.height+buttonSpacerHeight+buttonHeight/2-12 + (buttonHeight+buttonSpacerHeight) * i, 25, 25)];
                 checkLabel.text = @"\u2B1C";
                 checkLabel.font = [UIFont systemFontOfSize:16];
-                [checkLabel setTag: 50+i];
+                [checkLabel setTag: 50+i+1];
                 
             }
         }

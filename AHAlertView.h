@@ -35,6 +35,11 @@ typedef enum : NSUInteger {
  */
 @property (nonatomic, strong) UIColor *cancelButtonColor;
 
+/**
+ ** Button Mode of the dialog
+ */
+@property (nonatomic, assign) AlertViewMode alertMode;
+
 
 #pragma mark -- init
 - (id)initWithTitle:(NSString*)title andMessage:(NSString*)message andCancelButtonTitle:(NSString*)cancelTitle;
